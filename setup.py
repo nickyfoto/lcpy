@@ -17,7 +17,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'tasks = lcpy.cli:lcpy_cli',
+            'lcpy = lcpy.cli:lcpy_cli',
         ]
     },
 )
