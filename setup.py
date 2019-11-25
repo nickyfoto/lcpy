@@ -13,7 +13,7 @@ setup(
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
 
-    install_requires=['click']
+    install_requires=['click'],
 
     entry_points={
         'console_scripts': [
