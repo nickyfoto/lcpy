@@ -8,6 +8,10 @@ import click
 def lcpy_cli():
     """Run the tasks application."""
 
-
+@lcpy_cli.command(help="check filename")
+@click.argument('filename')
+def lcpy_cp(filename):
+	click.echo(filename)
+	
 if __name__ == '__main__':
     lcpy_cli()
