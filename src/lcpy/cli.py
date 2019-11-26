@@ -5,7 +5,7 @@ from pprint import pprint
 import os
 import click
 
-from utils import gen_test
+from .utils import gen_test
 
 # The main entry point for cli.
 @click.group(context_settings={'help_option_names': ['-h', '--help']})
