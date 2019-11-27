@@ -5,7 +5,9 @@ from pprint import pprint
 import os
 import click
 
-from .utils import gen_test
+from .utils import gen_test, gen_params
+import importlib
+
 
 # The main entry point for cli.
 @click.group(context_settings={'help_option_names': ['-h', '--help']})
@@ -27,36 +29,16 @@ def cp(filename):
     if not os.path.exists(base_dir):
         os.makedirs(base_dir)
     module_name = f'{n}_{fl[1]}'
+    # shutil.copy(filename, module_name+'.py')
     target_fn = f'{base_dir}{module_name}.py'
     # print(target_fn)
     shutil.copy(filename, target_fn)
 
-    gen_test(n, module_name)
+    params = gen_params(module_name, target_fn)
+    gen_test(n, module_name, params)
 
-    # import sys
     
-    # from temp_module_name import Solution
-    
-    # print(find_spec.__doc__)
 
-    # m = import_module(temp_module_name)
-    # m = import_module(inspect.getmodulename(filename))
-    # print(dir(m))
-    # print(dir(m.Solution))
-
-    # fname, f = inspect.getmembers(m.Solution, inspect.isfunction)[0]
-    # print(fname, f)
-
-
-    # pprint(inspect.getmembers(m))
-    # sig = inspect.signature(f)
-    # print(sig)
-
-
-
-
-
-    # s = f'{sig}'
 
 
 

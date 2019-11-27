@@ -1,6 +1,23 @@
+import importlib
+import inspect
 
+def gen_params(module_name, target_fn):
 
-def gen_test(num, module_name):
+    spec = importlib.util.spec_from_file_location(module_name, target_fn)
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    # print(m, dir(m))
+    s = m.Solution()
+    fn, _ = inspect.getmembers(m.Solution, inspect.isfunction)[0]
+
+    func = getattr(s, fn)
+    sig = inspect.signature(func)
+    # print(func, sig)
+    params = {k: None for k, _ in sig.parameters.items()}
+    # print(params)
+    return str(params)
+
+def gen_test(num, module_name, params):
     """
     generate test file
     """
@@ -13,19 +30,14 @@ module_name = "{module_name}"
 def test_{num}():
 
     m = import_module(module_name)  
-
     s = m.Solution()
-
     fn, _ = inspect.getmembers(m.Solution, inspect.isfunction)[0]
-
     func = getattr(s, fn)
 
-    n = 2
-    m = 3
-    indices = [[0,1],[1,1]]
+    params = {params}
+    res = None
 
-
-    assert func(n, m, indices) == 6
+    assert func(**params) == res
 """
     with open(f'./tests/test_{num}.py', 'w') as f:
         f.write(s)
