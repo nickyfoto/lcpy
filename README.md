@@ -12,6 +12,21 @@ LeetCode CLI helper for python.
 
 - `__str__`: print tree in bfs (ignore None node).
 
+## Installation
+
+```
+git clone https://github.com/nickyfoto/lcpy.git
+pip3 install ./lcpy
+```
+
+Install in editable mode
+
+```
+pip3 install -e ./lcpy
+```
+
+## Usage
+
 ---
 
 TODO
