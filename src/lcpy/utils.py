@@ -1,8 +1,9 @@
 import importlib
 import inspect
 
-def gen_params(module_name, target_fn):
 
+
+def gen_params(module_name, target_fn):
     spec = importlib.util.spec_from_file_location(module_name, target_fn)
     m = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(m)
@@ -12,10 +13,10 @@ def gen_params(module_name, target_fn):
 
     func = getattr(s, fn)
     sig = inspect.signature(func)
-    # print(func, sig)
-    params = {k: None for k, _ in sig.parameters.items()}
+    # print(func.__name__, sig)
+    # params = {k: k for k, _ in sig.parameters.items()}
     # print(params)
-    return str(params)
+    return sig
 
 def gen_test(num, module_name, params):
     """
@@ -34,10 +35,10 @@ def test_{num}():
     fn, _ = inspect.getmembers(m.Solution, inspect.isfunction)[0]
     func = getattr(s, fn)
 
-    params = {params}
-    res = None
+    
+    
 
-    assert func(**params) == res
+    assert func{params} == Output
 """
     with open(f'./tests/test_{num}.py', 'w') as f:
         f.write(s)

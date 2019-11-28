@@ -4,7 +4,7 @@ LeetCode CLI helper for python.
 
 ## Features
 
-- Generate testing files for testing using pytest.
+- Generate testing files for test locally using pytest.
 
 ## Modules
 
@@ -31,5 +31,7 @@ pip3 install -e ./lcpy
 
 TODO
 
+- [ ] name 'List' is not defined
+- [ ] cannot generate testing without adding `pass`.
 - [ ] add tree visualizer function
 - [ ] generate testing file for non `class Solution` problem.
