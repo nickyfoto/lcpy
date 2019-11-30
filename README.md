@@ -1,6 +1,6 @@
 # lcpy
 
-LeetCode CLI helper for python.
+[LeetCode CLI](https://github.com/leetcode-tools/leetcode-cli) helper for python.
 
 ## Features
 
@@ -8,7 +8,13 @@ LeetCode CLI helper for python.
 
 ## Modules
 
-### TreeNode
+### Algorithms
+
+- Knapsack
+
+### Data structures
+
+#### TreeNode
 
 - `__str__`: print tree in bfs (ignore None node).
 
