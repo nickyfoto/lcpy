@@ -3,6 +3,12 @@ from lcpy.dp import Knapsack
 from lcpy.dp import max_sum_continious_seq
 from lcpy.dp import LIS
 from lcpy.dp import LCS
+from lcpy.dp import LCSubStr
+from lcpy.dp import chainMultiply
+from lcpy.dp import Optimal_BST
+from lcpy.dp import coin_change
+from lcpy.dp import coin_change2
+from lcpy.dp import coin_change3
 
 
 def test_knapsack():
@@ -51,3 +57,41 @@ def test_LCS():
 	text2 = "aceXX" 
 	text1 = "abcde" 
 	assert LCS(text1, text2) == 2
+
+def test_chainMultiply():
+	m = [50,20,1,10,100]
+	n = 4
+	assert chainMultiply(m, n) == 7000
+	assert chainMultiply(m=[2,40,2,40,5], n=4) == 580
+
+
+
+def test_Optimal_BST():
+	assert Optimal_BST(keys=[10, 12, 20],
+           			 	freq=[34, 8, 50],
+            			n = 3) == 142
+
+def test_coin_change():
+	assert coin_change(15, [5, 10]) == 1
+	assert coin_change(12, [5, 10]) == 0
+
+def test_coin_change2():
+	assert coin_change2(1, [1, 5, 10, 20]) == True
+	assert coin_change2(2, [1, 5, 10, 20]) == False
+	assert coin_change2(5, [1, 5, 10, 20]) == True
+	assert coin_change2(6, [1, 5, 10, 20]) == True
+	assert coin_change2(7, [1, 5, 10, 20]) == False
+	assert coin_change2(15, [1, 5, 10, 20]) == True
+	assert coin_change2(16, [1, 5, 10, 20]) == True
+	assert coin_change2(17, [1, 5, 10, 20]) == False
+	assert coin_change2(31, [1, 5, 10, 20]) == True
+	assert coin_change2(40, [1, 5, 10, 20]) == False
+
+def test_coin_change3():
+	assert coin_change3(10, [1, 5, 6]) == \
+	{0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 1, 6: 1, 7: 2, 8: 3, 9: 4, 10: 2}
+
+def test_LCSubStr():
+	x = 'OldSite:GeeksforGeeks.org'
+	y = 'NewSite:GeeksQuiz.com'
+	assert LCSubStr(x, y, len(x), len(y)) == 10
