@@ -5,18 +5,34 @@
 ## Features
 
 - Generate testing files for test locally using pytest.
+- Modulize common algorithm and data structure for easy prototyping.
 
 ## Modules
 
 ### Algorithms
 
-- Knapsack
+- Dynamic Programming: Knapsack
+- Graph: dijkstra, connected components, 
 
 ### Data structures
 
 #### TreeNode
 
+- `build_root`: return TreeNode instance from given list.
 - `__str__`: print tree in bfs (ignore None node).
+
+#### ListNode (Linked List):
+
+- `build_head`: return ListNode instance from given list.
+- `__str__`: print linked list.
+
+#### Priority Queue
+
+- max heap pq
+
+#### Graph
+
+#### DiGraph
 
 ## Installation
 

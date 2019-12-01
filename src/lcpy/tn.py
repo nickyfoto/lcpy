@@ -80,7 +80,7 @@ class TreeNode:
     #     dfs(self)
     #     return str(res)
         
-def buildRoot(l):
+def build_root(l):
     root = TreeNode(l.pop(0))
     temp = [root]
     while temp:
@@ -104,5 +104,5 @@ def buildRoot(l):
 
 
 # l = [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
-# root = buildRoot(l)
+# root = build_root(l)
 # print(s.findMode(root))
