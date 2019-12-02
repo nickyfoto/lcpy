@@ -5,14 +5,15 @@
 ## Features
 
 - Generate testing files for test locally using pytest.
-- Modulize common algorithm and data structure for easy prototyping.
+- Provide common algorithm and data structure modules for easy prototyping.
 
 ## Modules
 
 ### Algorithms
 
 - Dynamic Programming: Knapsack
-- Graph: dijkstra, connected components, 
+- Graph: Dijkstra, connected components
+- Random: shuffle
 
 ### Data structures
 
@@ -26,7 +27,7 @@
 - `build_head`: return ListNode instance from given list.
 - `__str__`: print linked list.
 
-#### Priority Queue
+#### PriorityQueue
 
 - max heap pq
 

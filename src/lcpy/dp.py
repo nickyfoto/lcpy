@@ -144,6 +144,21 @@ def LCSubStr(X, Y, m, n):
 
 
 def chainMultiply(m, n):
+    """
+    return the min cost of performing chain matrix multiplication
+    Params:
+        m: size of matrices
+        n: number of matrices
+
+        e.g.
+            m = [50,20,1,10,100]
+	        n = 4
+            multiply 4 matrices of size
+            (50,20), (20,1), (1, 10), (10, 100)
+    
+    Algo:
+        TODO
+    """
     c = [[x] * n for x in [0] * n]
     for s in range(n-1):
         for i in range(0, n-s-1):
