@@ -13,7 +13,7 @@
 
 - Divide and Conquer: fastSelect, fastMultiply, mergeSort, quickSort, binary search
 - Dynamic Programming: Knapsack
-- Graph: Dijkstra, connected components
+- Graph: BFS, DFS, Dijkstra, connected components, Topological Sort
 - Random: shuffle
 
 ### Data structures
@@ -61,6 +61,7 @@ pip3 install -e ./lcpy
 
 TODO
 
+- [ ] Bit Manipulation
 - [ ] name 'List' is not defined
 - [ ] cannot generate testing without adding `pass`.
 - [ ] add tree visualizer function
