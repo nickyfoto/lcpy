@@ -62,6 +62,14 @@ pip3 install -e ./lcpy
 ## TODO
 
 - [ ] Bit Manipulation
+- [ ] Concurrency
+- [ ] ShellSort
+- [ ] Red-Black BST, B-Tree
+- [ ] Convex Hull
+- [ ] Sparse Vectors
+- [ ] Max Flow
+- [ ] Redix Sorts
+- [ ] Regular Expression
 - [ ] name 'List' is not defined
 - [ ] cannot generate testing without adding `pass`.
 - [ ] add tree visualizer function
