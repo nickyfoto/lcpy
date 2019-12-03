@@ -1,3 +1,5 @@
+"""Dynamic Programming"""
+
 import math
 
 class Knapsack:

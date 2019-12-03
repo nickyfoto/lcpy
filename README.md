@@ -11,6 +11,7 @@
 
 ### Algorithms
 
+- Divide and Conquer: fastSelect, fastMultiply, mergeSort, quickSort, binary search
 - Dynamic Programming: Knapsack
 - Graph: Dijkstra, connected components
 - Random: shuffle
@@ -34,6 +35,12 @@
 #### Graph
 
 #### DiGraph
+
+#### Trie
+
+#### UnionFind
+
+#### OrderedCounter
 
 ## Installation
 
