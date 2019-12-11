@@ -1,5 +1,13 @@
 """Divice and Conquer"""
 
+def sort_return_index(l):
+    """
+    sort an array, return the sorted indices
+    """
+    return sorted(range(l), key=lambda k: groupSizes[k])
+
+
+
 def find_n(num):
     """
     Params:
