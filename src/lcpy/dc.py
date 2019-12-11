@@ -4,7 +4,7 @@ def sort_return_index(l):
     """
     sort an array, return the sorted indices
     """
-    return sorted(range(l), key=lambda k: groupSizes[k])
+    return sorted(range(l), key=lambda k: l[k])
 
 
 
