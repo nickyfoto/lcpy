@@ -11,7 +11,28 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
+        self._pre = []
+        self._post = []
+    
+    def dfs(self, node):
+        if node:
+            self._pre.append(node.val)
+            self.dfs(node.left)
+            self.dfs(node.right)
+            self._post.append(node.val)
 
+    @property
+    def pre(self):
+        if not self._pre:
+            self.dfs(self)
+        return self._pre
+    
+    @property
+    def post(self):
+        if not self._pre:
+            self.dfs(self)
+        return self._post
+        
     def is_leaf(self, node):
         return not node.left and not node.right
 
