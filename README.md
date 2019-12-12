@@ -21,7 +21,12 @@
 #### TreeNode
 
 - `build_root`: return TreeNode instance from given list.
+
+##### instance method
+
 - `__str__`: print tree in bfs (ignore None node).
+- `pre`: return pre order of DFS traversal
+- `post`: return post order of DFS traversal
 
 #### ListNode (Linked List):
 
@@ -56,6 +61,12 @@ pip3 install -e ./lcpy
 ```
 
 ## Usage
+
+generate module and test template
+
+```sh
+lcpy cp <some_file.py>
+```
 
 ---
 
