@@ -32,7 +32,7 @@ class TreeNode:
         if not self._pre:
             self.dfs(self)
         return self._post
-        
+
     def is_leaf(self, node):
         return not node.left and not node.right
 
@@ -51,20 +51,29 @@ class TreeNode:
                 q.append(node.right)
         return str([n.val if n else n for n in res])
 
-    # def bfs(self):
-    #     res = [self]
-    #     q = [self]
-    #     while q:
-    #         node = q.pop(0)
-    #         if node.left:
-    #             res.append(node.left)
-    #             q.append(node.left)
-    #         if node.right:
-    #             res.append(node.right)
-    #             q.append(node.right)
-    #     # bfs(self)
-    #     return str([n.val for n in res])
-    # def dfs(self, node):
+    def __eq__(self, other): 
+        """
+        equality of TreeNode instance
+        use bfs to compare equality, keep aligned with print statement
+        """
+        l1 = self.bfs(self)
+        l2 = self.bfs(other)
+        # print('my=', l1, 'output=', l2)
+        return l1 == l2
+
+    def bfs(self, root):
+        res = [root]
+        q = [root]
+        while q:
+            node = q.pop(0)
+            if node.left:
+                res.append(node.left)
+                q.append(node.left)
+            if node.right:
+                res.append(node.right)
+                q.append(node.right)
+        return [n.val for n in res]
+
 
     # def __str__(self):
     #     res = []
