@@ -32,6 +32,7 @@
 
 - `build_head`: return ListNode instance from given list.
 - `__str__`: print linked list.
+- `__eq__`: equality check.
 
 #### PriorityQueue
 
