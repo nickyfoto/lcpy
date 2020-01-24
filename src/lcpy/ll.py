@@ -5,7 +5,8 @@ class ListNode:
         self.next = None
 
     def __str__(self):
-        
+        if self.detect_loop():
+            return "linked list has loop in it."
         l = [self.val]
         n = self
         while n.next:
@@ -23,16 +24,31 @@ class ListNode:
             current = next_node
         self = prev 
 
-    def __eq__(self, other):
+    def detect_loop(self):
+        
         node = self
-        while node and other:
-            if node.val != other.val:
+        if node is None or node.next is None:
+            return False
+        slow = node
+        fast = node.next
+        while slow != fast:
+            if fast is None or fast.next is None:
                 return False
-            node = node.next
-            other = other.next
+            slow = slow.next
+            fast = fast.next.next
         return True
+        
 
-# l = [2,7,5,8,8,8]
+    # def __eq__(self, other):
+    #     node = self
+    #     while node and other:
+    #         if node.val != other.val:
+    #             return False
+    #         node = node.next
+    #         other = other.next
+    #     return True
+
+
 
 def build_head(l):
     head = l.pop(0)
@@ -48,8 +64,10 @@ def build_head(l):
 if __name__ == '__main__':
     pass
     # create a linked list with a cycle in it
+    
 
 
+    
 
 
 
