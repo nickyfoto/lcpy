@@ -15,6 +15,8 @@
 - Dynamic Programming: Knapsack
 - Graph: BFS, DFS, Dijkstra, connected components, Topological Sort
 - Random: shuffle
+- Backtracking
+	- [value based permutation](https://github.com/nickyfoto/lcpy/blob/c845cc91e6f6783cb7b733a4ec77cd9f979fbe24/src/lcpy/bt.py#L6)
 
 ### Data structures
 
