@@ -17,6 +17,7 @@
 - Random: shuffle
 - Backtracking
 	- [value based permutation](https://github.com/nickyfoto/lcpy/blob/c845cc91e6f6783cb7b733a4ec77cd9f979fbe24/src/lcpy/bt.py#L6)
+	- [subset](https://github.com/nickyfoto/lcpy/blob/bd1417168891034cc5320f8332d2b0d9972ed0b9/src/lcpy/bt.py#L32)
 
 ### Data structures
 
