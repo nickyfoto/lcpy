@@ -28,3 +28,18 @@ def value_based_permutation(nums):
     backtrack(nums, used, lst, res)
 
     return res
+
+def subsets(nums):
+    """
+    Given a set of distinct integers, nums, return all possible subsets (the power set).
+    """
+    def backtrack(lst, nums, temp, start):
+        lst.append(temp.copy())
+        for i in range(start, len(nums)):
+            temp.append(nums[i])
+            backtrack(lst, nums, temp, i + 1)
+            temp.pop()
+    lst = []
+    nums.sort()
+    backtrack(lst, nums, [], 0)
+    return lst
