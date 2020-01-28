@@ -1,3 +1,5 @@
+from random import random
+
 def merge(B, C):
     res = []
     i = 0
@@ -20,3 +22,12 @@ def merge_sort(A):
         B = merge_sort(A[:n//2])
         C = merge_sort(A[n//2:])
         return merge(B, C)
+
+def shuffle(arr):
+    """
+    https://algs4.cs.princeton.edu/11model/Knuth.java.html
+    """
+    for i in range(len(arr)):
+        r = int(random() * (i + 1))
+        arr[i], arr[r] = arr[r], arr[i]
+    return arr
