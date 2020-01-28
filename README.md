@@ -14,7 +14,8 @@
 - Divide and Conquer: fastSelect, fastMultiply, mergeSort, quickSort, binary search
 - Dynamic Programming: Knapsack
 - Graph: BFS, DFS, Dijkstra, connected components, Topological Sort
-- Random: shuffle
+- Random
+	- [shuffle](https://github.com/nickyfoto/lcpy/blob/bdc1de5964a5fcb96701fd158cd746e5a39f5108/src/lcpy/sort.py#L26)
 - Backtracking
 	- [value based permutation](https://github.com/nickyfoto/lcpy/blob/c845cc91e6f6783cb7b733a4ec77cd9f979fbe24/src/lcpy/bt.py#L6)
 	- [subset](https://github.com/nickyfoto/lcpy/blob/bd1417168891034cc5320f8332d2b0d9972ed0b9/src/lcpy/bt.py#L32)
