@@ -3,7 +3,7 @@ from .list import List
 from .dp import *
 from .dc import *
 from .sort import merge_sort, shuffle
-from .ll import build_head, ListNode
+from .ln import build_head, ListNode
 
 from .bt import value_based_permutation
 from .bt import subsets
