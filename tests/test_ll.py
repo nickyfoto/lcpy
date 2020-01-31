@@ -1,4 +1,4 @@
-from lcpy import ListNode
+from lcpy import ListNode, build_head
 
 def build_head_with_loop(l):
         
@@ -18,4 +18,12 @@ def build_head_with_loop(l):
 def test_detect_loop():
     l = [2,7,5,8,8,8]
     ll = build_head_with_loop(l)
+    # print(ll)
     assert ll.detect_loop() == True
+
+
+def test_linked_list():
+    l = [1,2,3,4,5]
+    ll = build_head(l)
+    # print(ll)
+    assert ll.detect_loop() == False

@@ -25,7 +25,9 @@ class ListNode:
         self = prev 
 
     def detect_loop(self):
-        
+        """
+        need debug
+        """
         node = self
         if node is None or node.next is None:
             return False
@@ -36,17 +38,18 @@ class ListNode:
                 return False
             slow = slow.next
             fast = fast.next.next
+        # print('done')
         return True
         
 
-    # def __eq__(self, other):
-    #     node = self
-    #     while node and other:
-    #         if node.val != other.val:
-    #             return False
-    #         node = node.next
-    #         other = other.next
-    #     return True
+    def value_eq(self, other):
+        node = self
+        while node and other:
+            if node.val != other.val:
+                return False
+            node = node.next
+            other = other.next
+        return True
 
 
 
@@ -59,11 +62,6 @@ def build_head(l):
         n.next = ListNode(l.pop(0))
         n = n.next
     return head
-
-
-if __name__ == '__main__':
-    pass
-    # create a linked list with a cycle in it
     
 
 
