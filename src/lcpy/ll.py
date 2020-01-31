@@ -1,3 +1,14 @@
+def build_head(l):
+    head = l.pop(0)
+    head = ListNode(head) 
+
+    n = head
+    while l:
+        n.next = ListNode(l.pop(0))
+        n = n.next
+    return head
+
+
 class ListNode:
     
     def __init__(self, x):
@@ -10,20 +21,25 @@ class ListNode:
         l = [self.val]
         n = self
         while n.next:
+            # print('l =', l)
             l.append(n.next.val)
             n = n.next
         return str(l)
 
-    def reverse(self): 
-        prev = None
-        current = self 
-        while current: 
-            next_node = current.next
-            current.next = prev 
-            prev = current 
-            current = next_node
-        self = prev 
-
+    # def reverse(self): 
+    #     """
+    #     ListNode is different than LinkedList
+    #     So do not mix together
+    #     """
+    #     prev = None
+    #     current = self
+    #     while current: 
+    #         next_node = current.next
+    #         current.next = prev 
+    #         prev = current 
+    #         current = next_node
+    #     self = prev
+        
     def detect_loop(self):
         """
         need debug
@@ -53,15 +69,7 @@ class ListNode:
 
 
 
-def build_head(l):
-    head = l.pop(0)
-    head = ListNode(head) 
 
-    n = head
-    while l:
-        n.next = ListNode(l.pop(0))
-        n = n.next
-    return head
     
 
 

@@ -15,15 +15,26 @@ def build_head_with_loop(l):
         n.next = loop_node
         return head
     
-def test_detect_loop():
-    l = [2,7,5,8,8,8]
-    ll = build_head_with_loop(l)
-    # print(ll)
-    assert ll.detect_loop() == True
+# def test_detect_loop():
+#     l = [2,7,5,8,8,8]
+#     ll = build_head_with_loop(l)
+#     # print(ll)
+#     assert ll.detect_loop() == True
 
 
-def test_linked_list():
+# def test_linked_list():
+#     l = [1,2,3,4,5]
+#     ll = build_head(l)
+#     # print(ll)
+#     assert ll.detect_loop() == False
+
+def test_reverse_ll():
     l = [1,2,3,4,5]
     ll = build_head(l)
-    # print(ll)
-    assert ll.detect_loop() == False
+    print(ll)
+    print(ll)
+    print(ll)
+    # ll.reverse()
+    # print('ll=', ll)
+    # other = build_head([5,4,3,2,1])
+    # assert ll.value_eq(other) == True
