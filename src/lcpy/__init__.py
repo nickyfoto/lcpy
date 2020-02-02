@@ -8,6 +8,8 @@ from .ln import build_head, ListNode
 from .bt import value_based_permutation
 from .bt import subsets
 
+from .bs import bs
+
 from .graph import DiGraph
 from .graph import floyd_warshall
 
