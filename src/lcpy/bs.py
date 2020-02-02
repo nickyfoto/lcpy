@@ -2,7 +2,7 @@
 binary search
 """
 
-def bs(nums, target):
+def bs_recur(nums, target):
     """
     recursive
     if not found, return -1
@@ -13,10 +13,23 @@ def bs(nums, target):
     if nums[mid] == target:
         return mid
     elif target < nums[mid]:
-        return bs(nums[:mid], target)
+        return bs_recur(nums[:mid], target)
     else:
-        b = bs(nums[mid:], target)
+        b = bs_recur(nums[mid:], target)
         return -1 if b == -1 else mid + b
         
-
+def bs(nums, target):
+    """
+    while version
+    """
+    lo, hi = 0, len(nums)
+    while lo < hi:
+        mid = (hi + lo) // 2
+        if target < nums[mid]:
+            hi = mid
+        elif target > nums[mid]:
+            lo = mid + 1
+        else:
+            return mid
+    return -1
 
