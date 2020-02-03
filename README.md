@@ -11,7 +11,7 @@
 
 ### Algorithms
 
-- Divide and Conquer: fastSelect, fastMultiply, mergeSort, quickSort, binary search
+- Divide and Conquer: fastSelect, fastMultiply, mergeSort, quickSort, [binary search](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/bs.py)
 - Dynamic Programming: Knapsack
 - Graph: BFS, DFS, Dijkstra, connected components, Topological Sort, [floyd_warshall](https://github.com/nickyfoto/lcpy/blob/cca942de112c5d122385f835af79935475587c8e/src/lcpy/graph.py#L20)
 - Random
