@@ -79,6 +79,8 @@ lcpy cp <some_file.py>
 
 ## TODO
 
+- [ ] deal with cp file not exist
+- [ ] cannot cp design problem 
 - [ ] Bit Manipulation
 - [ ] Concurrency
 - [ ] ShellSort
