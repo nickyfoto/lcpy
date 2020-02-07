@@ -50,7 +50,7 @@
 
 #### Trie
 
-#### UnionFind
+#### [UnionFind](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/uf.py)
 
 #### OrderedCounter
 
