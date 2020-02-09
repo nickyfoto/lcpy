@@ -48,7 +48,7 @@
 
 #### DiGraph
 
-#### Trie
+#### [Trie](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/tr.py)
 
 #### [UnionFind](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/uf.py)
 
