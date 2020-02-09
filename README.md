@@ -52,7 +52,7 @@
 
 #### [UnionFind](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/uf.py)
 
-#### OrderedCounter
+#### [OrderedCounter](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/od.py)
 
 ## Installation
 
