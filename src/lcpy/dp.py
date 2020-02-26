@@ -36,7 +36,7 @@ class Knapsack:
                 in the previous row
         """
         n = len(v)
-        value = [[x] * (B+1) for x in [0] * (n+1)]
+        value = [[0] * (B+1) for _ in range(n + 1)]
         for i in range(1, n+1):
             for w in range(1, B+1):
                 value[i][w] = value[i-1][w]
