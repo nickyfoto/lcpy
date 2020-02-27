@@ -9,6 +9,7 @@ from lcpy.dp import Optimal_BST
 from lcpy.dp import coin_change
 from lcpy.dp import coin_change2
 from lcpy.dp import coin_change3
+from lcpy.dp import coin_change4
 
 
 def test_knapsack():
@@ -16,13 +17,16 @@ def test_knapsack():
 	weights = [15, 12, 10, 5]
 	B = 22
 	sack = Knapsack()
-	# print(sack.knapsackNoRepeat(values, weights, B))
 	assert 18 == sack.knapsackNoRepeat(values, weights, B)
+
+	values = weights = [1]
+	B = 3
+	sack = Knapsack()
+	assert 1 == sack.knapsackNoRepeat(values, weights, B)
 
 	values = [30, 14, 16, 9]
 	weights = [6 ,3, 4, 2]
 	B = 10
-
 	assert 46 == sack.knapsackNoRepeat(values, weights, B)
 
 	values =  [15, 10, 8, 1]
@@ -30,7 +34,6 @@ def test_knapsack():
 	B = 22
 	assert 18 == sack.knapsackRepeat(values, weights, B)
 
-	assert 18 == sack.ksNoRepeat_recur(B, weights, values, len(values))
 
 def test_mscs():
 	a = [5, 15, -30, 10, -5, 40, 10, -5]
@@ -90,6 +93,9 @@ def test_coin_change2():
 def test_coin_change3():
 	assert coin_change3(10, [1, 5, 6]) == \
 	{0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 1, 6: 1, 7: 2, 8: 3, 9: 4, 10: 2}
+
+def test_coint_change4():
+	assert coin_change4(5, [1,2,5]) == 4
 
 def test_LCSubStr():
 	x = 'OldSite:GeeksforGeeks.org'

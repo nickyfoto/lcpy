@@ -42,7 +42,6 @@ class Knapsack:
                 value[i][w] = value[i-1][w]
                 if wt[i-1] <= w:
                     value[i][w] = max(v[i-1] + value[i-1][w-wt[i-1]], value[i-1][w])
-
         return value[n][B]
 
     def knapsackRepeat(self, v, w, B):
@@ -255,3 +254,15 @@ def coin_change3(money, coins):
                 if numCoins < D[m]:
                     D[m] = numCoins
     return D
+
+def coin_change4(money, coins):
+    """
+    given amount of money and coins
+    return number of ways to change the amount
+    """
+    dp = [0] * (money + 1)
+    dp[0] = 1
+    for coin in coins:
+        for x in range(coin, money + 1):
+            dp[x] += dp[x - coin]
+    return dp[money]
