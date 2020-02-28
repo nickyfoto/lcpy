@@ -91,8 +91,7 @@ def test_coin_change2():
 	assert coin_change2(40, [1, 5, 10, 20]) == False
 
 def test_coin_change3():
-	assert coin_change3(10, [1, 5, 6]) == \
-	{0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 1, 6: 1, 7: 2, 8: 3, 9: 4, 10: 2}
+	assert coin_change3(10, [1, 5, 6]) == 2
 
 def test_coint_change4():
 	assert coin_change4(5, [1,2,5]) == 4

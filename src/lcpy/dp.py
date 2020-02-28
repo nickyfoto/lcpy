@@ -240,20 +240,18 @@ def coin_change2(money, coins):
 def coin_change3(money, coins):
     """
     given money and coins
-    return a dict
-    key is the amount of money we are trying to make the change
-    value is the min number of coins we use to make the change
+    return min number of coins to make the change
+    if cannot make the change, return -1
     """
-    D = {}
+    D = [float('inf')] * (money + 1)
     D[0] = 0
     for m in range(1, money+1):
-        D[m] = float("inf")
-        for c in range(len(coins)):
-            if m >= coins[c]:
-                numCoins = D[m-coins[c]] + 1
-                if numCoins < D[m]:
-                    D[m] = numCoins
-    return D
+        for c in coins:
+            if m >= c:
+                D[m] = min(D[m - c] + 1, D[m])
+    if D[money] == float('inf'):
+        return -1
+    return D[money]
 
 def coin_change4(money, coins):
     """
