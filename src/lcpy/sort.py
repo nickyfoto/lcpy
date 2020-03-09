@@ -31,3 +31,16 @@ def shuffle(arr):
         r = int(random() * (i + 1))
         arr[i], arr[r] = arr[r], arr[i]
     return arr
+
+def top_2_min_indices(arr):
+    """
+    one pass to find indices of top two min val
+    """
+    mn0 = mn1 = None
+    for i, n in enumerate(arr):
+        if mn0 is None or n < arr[mn0]:
+            mn1 = mn0
+            mn0 = i
+        elif mn1 is None or n < arr[mn1]:
+            mn1 = i
+    return mn0, mn1

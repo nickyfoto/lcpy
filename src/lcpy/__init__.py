@@ -5,7 +5,7 @@ from .tr import Trie
 from .od import OrderedCounter
 from .dp import *
 from .dc import *
-from .sort import merge_sort, shuffle
+from .sort import merge_sort, shuffle, top_2_min_indices
 from .ln import build_head, ListNode
 
 from .bt import value_based_permutation
