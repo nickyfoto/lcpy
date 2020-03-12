@@ -270,6 +270,7 @@ def is_palindrome(s):
     given a string
     return a matrix of 0 and 1 
     where matrix[i][j] is whether s[i:j+1] is a palindrome
+    complexity O(n^2)
     """
     n = len(s)
     matrix = [[0] * n for _ in range(n)]
