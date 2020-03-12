@@ -264,3 +264,25 @@ def coin_change4(money, coins):
         for x in range(coin, money + 1):
             dp[x] += dp[x - coin]
     return dp[money]
+
+def is_palindrome(s):
+    """
+    given a string
+    return a matrix of 0 and 1 
+    where matrix[i][j] is whether s[i:j+1] is a palindrome
+    """
+    n = len(s)
+    matrix = [[0] * n for _ in range(n)]
+    for mid in range(n):
+        i = j = mid
+        while 0 <= i and j < n and s[i] == s[j]:
+            matrix[i][j] = 1
+            i -= 1
+            j += 1
+        i = mid
+        j = mid + 1
+        while 0 <= i and j < n and s[i] == s[j]:
+            matrix[i][j] = 1
+            i -= 1
+            j += 1
+    return matrix
