@@ -287,3 +287,87 @@ def is_palindrome(s):
             i -= 1
             j += 1
     return matrix
+
+
+    
+    
+def copyBooks(pages, k):
+    """
+    TLE
+    from math import inf
+    from itertools import combinations, accumulate
+    if k == 1:
+        return sum(pages)
+    n = len(pages)
+    if n <= k:
+        return max(pages)
+    splits = list(range(n-1))
+    res = inf
+    options = combinations(splits, k - 1)
+    acc = list(accumulate(pages))
+    
+    for op in options:
+        local_max = 0
+        for i in range(len(op)):
+            if i == 0:
+                local_max = max(local_max, acc[op[i]])
+                if len(op) == 1:
+                    local_max = max(local_max, acc[-1] - acc[op[i]])    
+            elif i == len(op) - 1:
+                local_max = max(local_max, acc[op[i]] - acc[op[i-1]])
+                local_max = max(local_max, acc[-1] - acc[op[i]])
+            else:
+                local_max = max(local_max, acc[op[i]] - acc[op[i-1]])
+        res = min(local_max, res)
+    return res
+    """
+    if k == 1:
+        return sum(pages)
+    n = len(pages)
+    if n <= k:
+        return max(pages)
+    dp = [[0] * (n + 1) for _ in range(k + 1)]
+    dp[0] = [math.inf] * (n + 1)
+    dp[0][0] = 0
+    for i in range(1, k + 1):
+        for j in range(1, n + 1):
+            dp[i][j] = math.inf
+            s = 0
+            for l in range(j + 1)[::-1]:
+                if dp[i - 1][l] != math.inf:
+                    dp[i][j] = min(dp[i][j], max(dp[i - 1][l], s))
+                if l > 0:
+                    s += pages[l - 1]
+    # print(dp)
+    return dp[-1][-1]
+
+def copyBooks2(pages, k):
+    """
+    binary search + greedy
+    """
+    def valid(pages, limit, k):
+        cnt = 1
+        sm = 0
+        for p in pages:
+            if p > limit: return False
+            if p + sm > limit:
+                cnt += 1
+                sm = p
+            else:
+                sm += p
+        return cnt <= k
+        
+    n = len(pages)
+    if n == 0: return 0
+    max_page = max(pages)
+    sm = sum(pages)
+    l = max_page
+    r = sm
+    while l + 1 < r:
+        mid = (r + l) // 2
+        if valid(pages, mid, k):
+            r = mid
+        else:
+            l = mid
+    if valid(pages, l, k): return l
+    return r

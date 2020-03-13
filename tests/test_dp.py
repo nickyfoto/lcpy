@@ -10,7 +10,8 @@ from lcpy.dp import coin_change
 from lcpy.dp import coin_change2
 from lcpy.dp import coin_change3
 from lcpy.dp import coin_change4
-
+from lcpy.dp import copyBooks
+from lcpy.dp import copyBooks2
 
 def test_knapsack():
 	values =  [15, 10, 8, 1]
@@ -100,3 +101,9 @@ def test_LCSubStr():
 	x = 'OldSite:GeeksforGeeks.org'
 	y = 'NewSite:GeeksQuiz.com'
 	assert LCSubStr(x, y, len(x), len(y)) == 10
+
+def test_copyBooks():
+	pages = [3, 2, 4]
+	k = 2
+	assert copyBooks(pages, k) == 5
+	assert copyBooks2(pages, k) == 5
