@@ -10,6 +10,7 @@ from lcpy.dp import coin_change
 from lcpy.dp import coin_change2
 from lcpy.dp import coin_change3
 from lcpy.dp import coin_change4
+from lcpy.dp import coin_change5
 from lcpy.dp import copyBooks
 from lcpy.dp import copyBooks2
 
@@ -97,6 +98,9 @@ def test_coin_change3():
 def test_coint_change4():
 	assert coin_change4(5, [1,2,5]) == 4
 
+def test_coint_change5():
+	assert coin_change5(4, [1,2,3]) == 7
+
 def test_LCSubStr():
 	x = 'OldSite:GeeksforGeeks.org'
 	y = 'NewSite:GeeksQuiz.com'
@@ -107,3 +111,10 @@ def test_copyBooks():
 	k = 2
 	assert copyBooks(pages, k) == 5
 	assert copyBooks2(pages, k) == 5
+
+def test_number_of_possible_fill():
+	nums = [1,2,3,3,7]
+	target = 7
+	sack = Knapsack()
+	assert sack.number_of_possible_fill(nums, target) == 2
+

@@ -1,6 +1,7 @@
 """Dynamic Programming"""
 
 import math
+from pprint import pprint
 
 class Knapsack:
     def __init__(self):
@@ -62,6 +63,32 @@ class Knapsack:
         else:
             return max(val[n-1]+ self.ksNoRepeat_recur(B-wt[n-1], wt, val, n-1),
                        self.ksNoRepeat_recur(B, wt, val, n-1))
+    
+    def number_of_possible_fill(self, nums, target):
+        """
+        https://www.lintcode.com/problem/backpack-v/note/212945
+        """
+        n = len(nums)
+        dp = [[0] * (target + 1) for _ in range(n + 1)]
+        for i in range(n + 1):
+            dp[i][0] = 1
+        for i in range(1, n + 1):
+            for j in range(1, target + 1):
+                dp[i][j] = dp[i-1][j]
+                if nums[i-1] <= j:
+                    dp[i][j] = dp[i - 1][j] + dp[i - 1][j - nums[i - 1]]
+        # print()
+        # pprint(dp)
+        return dp[n][target]
+
+        # 1D dp
+        # dp = [0] * (target + 1)
+        # dp[0] = 1
+        # for i in range(1, n + 1):
+        #     for j in range(nums[i - 1], target + 1)[::-1]:
+        #         dp[j] += dp[j - nums[i - 1]]
+        # return dp[target]
+
 
 def max_sum_continious_seq(a):
     """"""
@@ -264,6 +291,20 @@ def coin_change4(money, coins):
         for x in range(coin, money + 1):
             dp[x] += dp[x - coin]
     return dp[money]
+
+
+def coin_change5(money, coins):
+    """
+    https://leetcode.com/problems/combination-sum-iv/submissions/
+    """
+    dp = [0] * (money + 1)
+    dp[0] = 1
+    for i in range(1, len(dp)):
+        dp[i] = sum(dp[i - coins[j]] for j in range(len(coins)) if i - coins[j] >= 0)
+        print(dp)
+    return dp[money]
+
+    
 
 def is_palindrome(s):
     """
