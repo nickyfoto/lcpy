@@ -116,28 +116,40 @@ def LIS(a):
                 L[i] = 1 + L[j]
     return max(L)
 
-def LCS(x, y):
-    """length of Longest common subsequences (LCS)"""
-    n = len(x)
-    L = [[x] * n for x in [0] * n]
-    for i in range(n):
-        for j in range(n):
-            if x[i] == y[j]:
-                if i == 0 or j == 0:
-                    L[i][j] = 1
-                else:
-                    L[i][j] = 1 + L[i-1][j-1]
-            else:
-                if i == 0 or j == 0:
-                    L[i][j] = 0
-                else:
-                    L[i][j] = max(L[i-1][j], L[i][j-1])
-    return L[n-1][n-1]
-
-
-def LCSubStr(X, Y, m, n): 
+def LCS(text1, text2):
+    """length of Longest common subsequences (LCS)
+    https://leetcode.com/problems/longest-common-subsequence/
     """
-    LCS with unequal length
+    n1 = len(text1) + 1
+    n2 = len(text2) + 1
+    dp = [[0] * n2 for _ in range(n1)]
+    for i in range(1, n1):
+        for j in range(1, n2):
+            if text1[i - 1] == text2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+    return dp[-1][-1]
+
+
+def LCS_string(text1, text2): 
+    """
+    LCS output string
+    """
+    n1 = len(text1) + 1
+    n2 = len(text2) + 1
+    dp = [["" for _ in range(n2)] for _ in range(n1)]
+    for i in range(1, n1):
+        for j in range(1, n2):
+            if text1[i - 1] == text2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + text1[i - 1]
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+    return dp[-1][-1]
+
+def longest_common_substring(X, Y): 
+    """
+    length of common substring
     """
     # Create a table to store lengths of 
     # longest common suffixes of substrings.  
@@ -150,7 +162,8 @@ def LCSubStr(X, Y, m, n):
       
     # LCSuff is the table with zero  
     # value initially in each cell 
-    LCSuff = [[0 for k in range(n+1)] for l in range(m+1)] 
+    m, n = len(X), len(Y)
+    dp = [[0] * (n + 1) for l in range(m + 1)] 
       
     # To store the length of  
     # longest common substring 
@@ -160,16 +173,10 @@ def LCSubStr(X, Y, m, n):
     # LCSuff[m+1][n+1] in bottom up fashion 
     for i in range(m + 1): 
         for j in range(n + 1): 
-            if (i == 0 or j == 0): 
-                LCSuff[i][j] = 0
-            elif (X[i-1] == Y[j-1]): 
-                LCSuff[i][j] = LCSuff[i-1][j-1] + 1
-                result = max(result, LCSuff[i][j]) 
-            else: 
-                LCSuff[i][j] = 0
+            if X[i - 1] == Y[j - 1]: 
+                dp[i][j] = dp[i - 1][j - 1] + 1
+                result = max(result, dp[i][j])
     return result 
-
-
 
 def chainMultiply(m, n):
     """
@@ -301,7 +308,7 @@ def coin_change5(money, coins):
     dp[0] = 1
     for i in range(1, len(dp)):
         dp[i] = sum(dp[i - coins[j]] for j in range(len(coins)) if i - coins[j] >= 0)
-        print(dp)
+        # print(dp)
     return dp[money]
 
     

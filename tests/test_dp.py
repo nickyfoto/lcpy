@@ -3,7 +3,8 @@ from lcpy.dp import Knapsack
 from lcpy.dp import max_sum_continious_seq
 from lcpy.dp import LIS
 from lcpy.dp import LCS
-from lcpy.dp import LCSubStr
+from lcpy.dp import LCS_string
+from lcpy.dp import longest_common_substring
 from lcpy.dp import chainMultiply
 from lcpy.dp import Optimal_BST
 from lcpy.dp import coin_change
@@ -59,9 +60,16 @@ def test_LCS():
 	x = "ABBA"
 	y = "BBAA"
 	assert LCS(x, y) == 3
-	text2 = "aceXX" 
-	text1 = "abcde" 
-	assert LCS(text1, text2) == 2
+	x = "aceXX" 
+	y = "abcde" 
+	assert LCS(x, y) == 3
+
+def test_longest_common_substring():
+	x = 'OldSite:GeeksforGeeks.org'
+	y = 'NewSite:GeeksQuiz.com'
+	assert longest_common_substring(x, y) == 10
+
+
 
 def test_chainMultiply():
 	m = [50,20,1,10,100]
@@ -101,10 +109,10 @@ def test_coint_change4():
 def test_coint_change5():
 	assert coin_change5(4, [1,2,3]) == 7
 
-def test_LCSubStr():
-	x = 'OldSite:GeeksforGeeks.org'
-	y = 'NewSite:GeeksQuiz.com'
-	assert LCSubStr(x, y, len(x), len(y)) == 10
+def test_LCS_string():
+	x = "abcde"
+	y = "ace"
+	assert LCS_string(x, y) == "ace"
 
 def test_copyBooks():
 	pages = [3, 2, 4]
