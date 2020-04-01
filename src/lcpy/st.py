@@ -16,46 +16,36 @@ class SegmentNode:
 class SegmentTree:
 
     def __init__(self, nums):
+        self.nums = nums
+        self.root = self._createTree(0, len(nums) - 1)
         
-        def createTree(nums, l, r):
-            if l > r: return None
-            if l == r:
-                n = SegmentNode(l, r)
-                n.val = nums[l]
-                return n
-            mid = (l + r) // 2
-            root = SegmentNode(l, r)
-            root.lchild = createTree(nums, l, mid)
-            root.rchild = createTree(nums, mid + 1, r)
-            root.val = root.lchild.val + root.rchild.val
-            return root
+    def _createTree(self, l, r):
+        if l > r: return None
+        if l == r:
+            n = SegmentNode(l, r)
+            n.val = self.nums[l]
+            return n
+        mid = (l + r) // 2
+        root = SegmentNode(l, r)
+        root.lchild = self._createTree(l, mid)
+        root.rchild = self._createTree(mid + 1, r)
+        root.val = root.lchild.val + root.rchild.val
+        return root
         
-        self.root = createTree(nums, 0, len(nums) - 1)
+    def update(self, i, val, node=None):
+        if not node: node = self.root
+        if i < node.l or node.r < i: return
+        if node.l == node.r:
+            node.val = val
+            return val
+        self.update(i, val, node.lchild) 
+        self.update(i, val, node.rchild) 
+        node.val = node.lchild.val + node.rchild.val
+        return node.val
 
-    def update(self, i, val):
-        
-        def updateVal(node, i, val):
-            # print(node)
-            # print('i=', i)
-            if i < node.l or node.r < i:
-                return
-            if node.l == node.r:
-                node.val = val
-                return val
-            updateVal(node.lchild, i, val) 
-            updateVal(node.rchild, i, val) 
-            node.val = node.lchild.val + node.rchild.val
-            return node.val
-        
-        return updateVal(self.root, i, val)
-
-    def sumRange(self, i, j):
-
-        def rangeSum(node, i ,j):
-            if j < node.l or node.r < i:
-                return 0 
-            if i <= node.l and node.r <= j:
-                return node.val
-            return rangeSum(node.lchild, i, j) + rangeSum(node.rchild, i ,j)
-        return rangeSum(self.root, i, j)
+    def query(self,i ,j, node=None):
+        if not node: node = self.root
+        if j < node.l or node.r < i: return 0 
+        if i <= node.l and node.r <= j: return node.val
+        return self.query(i, j, node.lchild) + self.query(i ,j, node.rchild)
 
