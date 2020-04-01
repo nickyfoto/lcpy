@@ -31,11 +31,11 @@
 
 - `build_root`: return TreeNode instance from given list.
 
-##### instance method
+- instance method
 
-- `__str__`: print tree in bfs (ignore None node).
-- `pre`: return pre order of DFS traversal
-- `post`: return post order of DFS traversal
+	- `__str__`: print tree in bfs (ignore None node).
+	- `pre`: return pre order of DFS traversal
+	- `post`: return post order of DFS traversal
 
 #### ListNode (Linked List):
 
