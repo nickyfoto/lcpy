@@ -13,3 +13,6 @@ def test_bs():
     assert bs(nums, 5) == 4
     assert bs(nums, 10) == -1
     assert bs(nums, -1) == -1
+
+    nums = [5]
+    assert bs(nums, 5) == 0

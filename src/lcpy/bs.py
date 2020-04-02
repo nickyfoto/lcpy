@@ -22,14 +22,17 @@ def bs(nums, target):
     """
     while version
     """
-    lo, hi = 0, len(nums)
-    while lo < hi:
-        mid = (hi + lo) // 2
+    l, r = 0, len(nums) - 1
+    res = -1
+    while l <= r:
+        # mid = (l + r) // 2
+        mid = l + (r - l) // 2 # prevent overflow in Java
         if target < nums[mid]:
-            hi = mid
+            r = mid - 1
         elif target > nums[mid]:
-            lo = mid + 1
+            l = mid + 1
         else:
-            return mid
-    return -1
+            res = mid
+            break
+    return res
 
