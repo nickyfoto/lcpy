@@ -27,6 +27,13 @@
 
 ### Data structures
 
+#### [Segment Tree](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/st.py)
+
+- instance method
+
+	- `update(i, val)`
+	- `query(i, j)`
+
 #### TreeNode
 
 - `build_root`: return TreeNode instance from given list.
