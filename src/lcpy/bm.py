@@ -1,7 +1,9 @@
 """
 bit manipulation
 
-XOR: 136
+AND: 67
+<<: 67
+XOR: 67, 136
 """
 
 
