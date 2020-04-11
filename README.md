@@ -89,6 +89,7 @@ lcpy cp <some_file.py>
 
 ## TODO
 
+- [ ] substring search, KMP
 - [ ] deal with cp file not exist
 - [ ] cannot cp design problem 
 - [ ] Bit Manipulation
