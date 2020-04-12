@@ -1,5 +1,6 @@
 """
 Trie
+https://leetcode.com/problems/implement-trie-prefix-tree/discuss/58834/AC-Python-Solution/205713
 """
 
 class Node:
