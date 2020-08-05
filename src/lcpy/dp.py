@@ -52,7 +52,6 @@ class Knapsack:
             for i in range(n):
                 if w[i] <= b:
                     dp[b] = max(dp[b], dp[b-w[i]]+v[i])
-        
         return dp[B]
 
     def ksNoRepeat_recur(self, B, wt, val, n):
