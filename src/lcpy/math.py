@@ -24,11 +24,14 @@ def lcm(a, b):
     return a * b // gcd(a, b)
 
 def primeFactorization(n):
+    """
+    pf is prime factor
+    """
     if n == 1:
         yield 1
-    d = 2
+    pf = 2
     while n > 1:
-        while n % d == 0:
-            n //= d
-            yield d
-        d += 1
+        while n % pf == 0:
+            n //= pf
+            yield pf
+        pf += 1
