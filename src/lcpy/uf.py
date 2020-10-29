@@ -40,16 +40,16 @@ class UF:
         """
         path compression
         """
-        if p == self.arr[p]: return p
-        self.arr[p] = self.find_opt(p)
+        if p != self.arr[p]:
+            self.arr[p] = self.find_opt(self.arr[p])
         return self.arr[p]
     
     def union(self, sm, lg):
         """
         sm: small, lg: large
         """
-        rs = self.find(sm)
-        rl = self.find(lg)
+        rs = self.find_opt(sm)
+        rl = self.find_opt(lg)
         if rs == rl:
             return
         self.arr[rl] = rs
