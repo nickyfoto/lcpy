@@ -25,11 +25,18 @@ class UF:
         self.d.setdefault(q, q)
         self.d[self.find(q)] = self.find(p)
 """
+
+from collections import Counter
+
 class UF:
     
     def __init__(self, n):
+        """
+        self.c count number of nodes connected to this root
+        """
         self.arr = list(range(n))
         self.num_of_roots = n
+        self.c = [1] * n
 
     def find(self, p):
         while p != self.arr[p]:
@@ -44,13 +51,18 @@ class UF:
             self.arr[p] = self.find_opt(self.arr[p])
         return self.arr[p]
     
-    def union(self, sm, lg):
+    def union(self, u, v):
         """
-        sm: small, lg: large
+        Union by larger root
         """
-        rs = self.find_opt(sm)
-        rl = self.find_opt(lg)
-        if rs == rl:
+        ru = self.find_opt(u)
+        rv = self.find_opt(v)
+        if ru == rv:
             return
-        self.arr[rl] = rs
+        if self.c[ru] > self.c[rv]:
+            self.c[ru] += self.c[rv]
+            self.arr[rv] = ru
+        else:
+            self.c[rv] += self.c[ru]
+            self.arr[ru] = rv
         self.num_of_roots -= 1
