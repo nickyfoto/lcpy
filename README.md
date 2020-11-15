@@ -34,6 +34,13 @@
 	- `update(i, val)`
 	- `query(i, j)`
 
+#### [Binary Indexed Tree](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/bit.py)
+
+instance method
+
+	- `update(i, val)`
+	- `query(i)`
+
 #### TreeNode
 
 - `build_root`: return TreeNode instance from given list.
