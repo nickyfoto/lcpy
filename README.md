@@ -36,7 +36,7 @@
 
 #### [Binary Indexed Tree](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/bit.py)
 
-instance method
+- instance method
 
 	- `update(i, val)`
 	- `query(i)`
