@@ -1,5 +1,13 @@
 """
 binary search
+
+while l < r:
+    mid = l + (r + l) // 2
+    if isOK(mid):
+        left = mid + 1
+    else:
+        right = mid
+    return left
 """
 
 def bs_recur(nums, target):
