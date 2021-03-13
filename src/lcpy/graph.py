@@ -1,6 +1,8 @@
 from collections import defaultdict
+from heapq import heappop, heappush
+from math import inf
 
-def dijkstra():  
+def dijkstra(n, edges):  
     """
     Dijkstra to find shortest distance of paths from node `n` to any other nodes
     """
