@@ -1,5 +1,26 @@
 from collections import defaultdict
 
+def dijkstra():  
+    """
+    Dijkstra to find shortest distance of paths from node `n` to any other nodes
+    """
+    g = defaultdict(dict)
+    for u, v, w in edges:
+        g[u][v] = w
+        g[v][u] = w
+    pq = [(0, n)]
+    dist = [inf] * (n + 1)
+    dist[n] = 0
+    while pq:
+        d, u = heappop(pq)
+        if d != dist[u]: continue
+        for v in g[u]:
+            if dist[v] > dist[u] + g[u][v]:
+                dist[v] = dist[u] + g[u][v]
+                heappush(pq, (dist[v], v))
+    return dist
+
+
 class DiGraph:
     def __init__(self):
         self.nodes = {}
