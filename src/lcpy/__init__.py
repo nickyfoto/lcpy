@@ -18,7 +18,7 @@ from .graph import floyd_warshall
 
 from.math import gcd, lcm, coprime
 
-from .bm import singleNumber
+from .bm import singleNumber, binarize
 
 from .st import SegmentTree
 
