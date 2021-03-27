@@ -1,6 +1,6 @@
 from collections import defaultdict
 from heapq import heappop, heappush
-from math import inf
+import math
 
 def dijkstra(n, edges):  
     """
@@ -11,7 +11,7 @@ def dijkstra(n, edges):
         g[u][v] = w
         g[v][u] = w
     pq = [(0, n)]
-    dist = [inf] * (n + 1)
+    dist = [math.inf] * (n + 1)
     dist[n] = 0
     while pq:
         d, u = heappop(pq)
@@ -58,3 +58,36 @@ def floyd_warshall(dg):
     # for k, v in dist.items():
     # print(k, {kk:vv for kk, vv in v.items()})
     return dist
+
+def all_simple_paths_graph(source, targets, cutoff):
+
+    g = defaultdict(dict)
+    edges = [[1,2,3],[1,3,3],[2,3,1],[1,4,2],[5,2,2],[3,5,1],[5,4,10]]
+    for u, v, w in edges:
+        g[u][v] = w
+        g[v][u] = w
+    visited = dict.fromkeys([source])
+    stack = [iter(g[source])]
+    while stack:
+        children = stack[-1]
+        child = next(children, None)
+        if child is None:
+            stack.pop()
+            visited.popitem()
+        elif len(visited) < cutoff:
+            if child in visited:
+                continue
+            if child in targets:
+                yield list(visited) + [child]
+            visited[child] = None
+            if targets - set(visited.keys()):
+                stack.append(iter(g[child]))
+            else:
+                visited.popitem()
+        else:
+            for target in (targets & set(children) | {child} - set(visited.keys())):
+                yield list(visited) + [target]
+            stack.pop()
+            visited.popitem()
+for path in all_simple_paths_graph(1, {5}, 4):
+    print('path:', path)

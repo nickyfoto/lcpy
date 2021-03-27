@@ -1,4 +1,4 @@
-"""Minimal setup file for tasks project."""
+"""setup file for lcpy project."""
 
 from setuptools import setup, find_packages
 

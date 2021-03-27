@@ -2,7 +2,7 @@
 binary search
 
 while l < r:
-    mid = l + (r + l) // 2
+    mid = l + (r - l) // 2
     if isOK(mid):
         left = mid + 1
     else:

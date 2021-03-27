@@ -31,7 +31,6 @@ def cp(filename):
     module_name = f'{n}_{fl[1]}'
     # shutil.copy(filename, module_name+'.py')
     target_fn = f'{base_dir}{module_name}.py'
-    # print(target_fn)
     shutil.copy(filename, target_fn)
 
     params = gen_params(module_name, target_fn)
