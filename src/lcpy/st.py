@@ -1,5 +1,7 @@
 """
 segment tree
+
+lc 307
 """
 
 class SegmentNode:
