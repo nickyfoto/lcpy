@@ -2,6 +2,19 @@
 math related algorithms
 """
 
+def quickMod(a, b, mod):
+    """
+    a^b % mod
+    """
+    res = 1
+    while b:
+        if b % 2 == 1:
+            res = (res * a ) % mod
+        b //= 2
+        a = (a * a) % mod
+    return res
+
+
 def gcd(a, b):
     """
     non recursive
