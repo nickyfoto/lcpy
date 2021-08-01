@@ -1,18 +1,26 @@
 from collections import defaultdict
 from heapq import heappop, heappush
-import math
+from math import inf
+from typing import List, Optional
 
-def dijkstra(n, edges):  
+def dijkstra(g: dict, n: int, start: int, target: Optional[int] =None) -> List:  
     """
-    Dijkstra to find shortest distance of paths from node `n` to any other nodes
+    :param g: directed graph
+    :param n: total number of nodes in graph, 1 indexed
+    :param state: start point
+    :param target: target point
+
+    Dijkstra to find shortest distance of paths from node `start` to any other nodes
+    no need to use visited set
+    use only one array dist to keep track of distance
+    reason is, when d == dist[u]
+    means dist[u] is already the shortest
+    we can update its neighbor
     """
-    g = defaultdict(dict)
-    for u, v, w in edges:
-        g[u][v] = w
-        g[v][u] = w
-    pq = [(0, n)]
-    dist = [math.inf] * (n + 1)
-    dist[n] = 0
+    
+    pq = [(0, start)]
+    dist = [inf] * (n + 1)
+    dist[start] = 0
     while pq:
         d, u = heappop(pq)
         if d != dist[u]: continue
@@ -20,7 +28,7 @@ def dijkstra(n, edges):
             if dist[v] > dist[u] + g[u][v]:
                 dist[v] = dist[u] + g[u][v]
                 heappush(pq, (dist[v], v))
-    return dist
+    return dist[1:]
 
 
 class DiGraph:
@@ -91,3 +99,5 @@ def all_simple_paths_graph(source, targets, cutoff):
             visited.popitem()
 for path in all_simple_paths_graph(1, {5}, 4):
     print('path:', path)
+
+__all__ = ['dijkstra', 'DiGraph', 'floyd_warshall']

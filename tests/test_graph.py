@@ -1,4 +1,5 @@
-from lcpy import DiGraph, floyd_warshall
+from lcpy.graph import dijkstra, DiGraph, floyd_warshall
+from collections import defaultdict
 import networkx as nx
 
 n = 4
@@ -25,3 +26,13 @@ def test_floyd_warshall():
     
     distx = nx.floyd_warshall(dgx)
     assert dist == distx
+
+def test_dijkstra():
+    g = defaultdict(dict)
+    edges = [[2,1,1],[2,3,1],[3,4,1]]
+    for u, v, w in edges:
+        g[u][v] = w
+    n = 4
+    start = 2
+    target = [1,0,1,2]
+    assert dijkstra(g, n, start) == target
