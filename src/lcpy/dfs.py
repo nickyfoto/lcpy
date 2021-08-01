@@ -4,7 +4,9 @@ DFS
 
 
 def coloring_area(grid):
-    
+    """
+    LC 827
+    """
     color = 2
     n = len(grid)
     def neighbors(r, c):

@@ -16,7 +16,7 @@
 	- Knapsack
 	- Longest Common Subsequences ([length](https://github.com/nickyfoto/lcpy/blob/2ba4ac1da0923d3ebddfed7535d758b61574f9c2/src/lcpy/dp.py#L119), [string](https://github.com/nickyfoto/lcpy/blob/2ba4ac1da0923d3ebddfed7535d758b61574f9c2/src/lcpy/dp.py#L135))
 	- Longest Common Substring ([length](https://github.com/nickyfoto/lcpy/blob/2ba4ac1da0923d3ebddfed7535d758b61574f9c2/src/lcpy/dp.py#L150), string)
-- Graph: BFS, DFS, Dijkstra, connected components, Topological Sort, [floyd_warshall](https://github.com/nickyfoto/lcpy/blob/cca942de112c5d122385f835af79935475587c8e/src/lcpy/graph.py#L20)
+- Graph: BFS, [DFS](https://github.com/nickyfoto/lcpy/blob/cca942de112c5d122385f835af79935475587c8e/src/lcpy/dfs.py), Dijkstra, connected components, Topological Sort, [Floyd Warshall](https://github.com/nickyfoto/lcpy/blob/cca942de112c5d122385f835af79935475587c8e/src/lcpy/graph.py#L20)
 - Random
 	- [shuffle](https://github.com/nickyfoto/lcpy/blob/bdc1de5964a5fcb96701fd158cd746e5a39f5108/src/lcpy/sort.py#L26)
 - Backtracking
