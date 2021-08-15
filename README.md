@@ -23,7 +23,7 @@
 	- [value based permutation](https://github.com/nickyfoto/lcpy/blob/c845cc91e6f6783cb7b733a4ec77cd9f979fbe24/src/lcpy/bt.py#L6)
 	- [subset](https://github.com/nickyfoto/lcpy/blob/bd1417168891034cc5320f8332d2b0d9972ed0b9/src/lcpy/bt.py#L32)
 - [Math](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/math.py)
-	- gcd, lcm, coprime, gen_primes, pow
+	- gcd, lcm, coprime, gen_primes, [pow](https://docs.python.org/3/library/functions.html)
 - Diff Array
     - [range frequency](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/df.py)
 	- [unique combinations from two list](https://github.com/nickyfoto/lcpy/blob/master/src/lcpy/it.py)
