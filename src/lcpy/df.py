@@ -1,9 +1,14 @@
 """
 diff array
+
+798 and 1674 are similar
+
+
 """
 
 def range_to_freq(requests, n):
     """
+    LC 1589
     given a range of requests
     return frequnency array
 
@@ -28,5 +33,3 @@ def range_to_freq(requests, n):
         pre += diff[i]
         freq[i] = pre
     return freq
-
-# print(range_to_freq([[1, 3], [0, 1]], 5))

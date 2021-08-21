@@ -54,6 +54,11 @@ class UF:
     def union(self, u, v):
         """
         Union by larger root
+        huifeng template no compare length of nodes
+        x = Father[x];
+        y = Father[y];
+        if (x<y) Father[y] = x;
+        else Father[x] = y;
         """
         ru = self.find_opt(u)
         rv = self.find_opt(v)
