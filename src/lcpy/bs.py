@@ -10,6 +10,42 @@ while l < r:
         right = mid
     return left
 """
+from types import List
+
+
+
+
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        """
+        
+        """
+        n = len(nums)
+        l = 0
+        r = n - 1
+        if nums[r] >= nums[l]:
+            return nums[l]
+        
+        while l < r:
+            mid = l + (r - l) // 2
+            # mod = r - (r - l) // 2
+            if nums[mid] >= nums[0]:
+                l = mid + 1
+            else:
+                r = mid
+        return nums[l]
+
+
+
+
+
+
+
+
+
+
+
+
 
 def bs_recur(nums, target):
     """

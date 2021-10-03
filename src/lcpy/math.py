@@ -84,3 +84,16 @@ def gen_primes():
             del D[q]
         
         q += 1
+
+
+
+def countPrimes(self, n: int) -> int:
+    isPrime = [1] * n
+    res = 0
+    for i in range(2, n):
+        if isPrime[i]:
+            res += 1
+            if i * i < n:
+                for j in range(i * i, n, i):
+                    isPrime[j] = 0
+    return res
