@@ -77,3 +77,45 @@ matrix = [[1,0,1],[0,-2,3]]
 [0, -2, 3]
 
 ```
+
+
+
+```py
+# get all possible combinations from an array be choosing number of elements from 1 to len(nums)
+nums = [1,2,3,4]
+N = len(nums)
+
+for k in range(1, N+1): # takes k element for nums
+    for comb in combinations(nums, k):
+        print(list(comb))
+
+# LC 1775
+# LC 2035
+
+```
+
+
+
+
+Tree
+
+```py
+# 285
+# if p has right, find the left most at it's right
+
+if p.right:
+    p = p.right
+    while p.left:
+        p = p.left
+    return p
+
+# 236 LCA
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if root in (None, p, q):
+            return root
+        left, right = [self.lowestCommonAncestor(child, p, q) for child in (root.left, root.right)]
+        return root if left and right else left or right
+
+
+```

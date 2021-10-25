@@ -2,6 +2,7 @@
 Trie
 https://leetcode.com/problems/implement-trie-prefix-tree/discuss/58834/AC-Python-Solution/205713
 """
+from typing import List
 
 class Node:
     def __init__(self, c):
@@ -94,7 +95,7 @@ class Trie:
         # prefix = prefix[:-1]
         self.collect(node.right, prefix, result)
 
-    def startsWith(self, prefix: str) -> [str]:
+    def startsWith(self, prefix: str) -> List[str]:
         """
         Returns if there is any word in the trie that starts with the given prefix.
         if prefix is "", return all keys
