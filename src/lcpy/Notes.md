@@ -116,6 +116,125 @@ class Solution:
             return root
         left, right = [self.lowestCommonAncestor(child, p, q) for child in (root.left, root.right)]
         return root if left and right else left or right
+```
+
+
+
+```py
+# 124 Binary Tree Maximum Path Sum
+# 2049 Count Nodes With the Highest Score
+# 687 Longest Univalue Path
+# 543 Diameter of Binary Tree
+
+# Have a global variable to save the result
+# the recursion itself dosen't return the result
+# we use intermediate result to update the global answer
+
+
+
+def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+    """
+    dfs returns number of nodes from node to its furthest leave node, including the node itself.
+    we can update the result when doing dfs
+    since we are counting the number of nodes and the question
+    is asking about the number of edges
+    we need to subtract 1 in the end
+    """
+    self.res = 0
+    def dfs(node):
+        if node:
+            l = dfs(node.left)
+            r = dfs(node.right)
+            self.res = max(self.res, l + r + 1)
+            return max(l, r) + 1
+        return 0
+    dfs(root)
+    return self.res - 1
+
+
+def longestUnivaluePath(self, root: Optional[TreeNode]) -> int:
+    """
+    dfs returns the longest univalue a node has, including itself
+    """
+    self.res = 0
+    def dfs(node):
+        if node:
+            l = dfs(node.left)
+            r = dfs(node.right)
+            ll = rr = 0
+            if node.left and node.left.val == node.val:
+                ll += l
+            if node.right and node.right.val == node.val:
+                rr += r
+            self.res = max(self.res, ll + rr)
+            return max(ll, rr) + 1
+    dfs(root)
+    return self.res
+
+def maxPathSum(self, root: Optional[TreeNode]) -> int:
+    self.res = -inf
+    def dfs(node):
+        """
+        return max sum starting from this node and goes to one of its child
+        """
+        if node:
+            l = max(0, dfs(node.left))
+            r = max(0, dfs(node.right))
+            mx = node.val + l + r
+            self.res = max(self.res, mx)
+            return node.val + max(l, r)
+        return 0    
+    dfs(root)
+    return self.res
+```
+
+Geometry
+
+```py
+# 223
+
+def computeArea(self, ax1: int, ay1: int, ax2: int, ay2: int, bx1: int, by1: int, bx2: int, by2: int) -> int:
+        a = abs(ax1 - ax2) * abs(ay1 - ay2)
+        b = abs(bx1 - bx2) * abs(by1 - by2)
+        if ax1 >= bx2:     # if A is on the left of B
+            return a + b
+        if ax2 <= bx1:     # if A is on the right of B
+            return a + b
+        if ay1 >= by2:     # if A is above B
+            return a + b
+        if ay2 <= by1:     # if A is below B
+            return a + b
+        # otherwise find lower left and upper right using min, max
+        # and subtract duplicated area
+        xll = max(ax1, bx1)
+        yll = max(ay1, by1)
+        xur = min(ax2, bx2)
+        yur = min(ay2, by2)
+        return a + b - abs(yll - yur) * abs(xll - xur)
+```
+
+
+
+Sliding window
+
+```py
+# 1248 count number of nice subarrays
+# https://leetcode.com/problems/count-number-of-nice-subarrays/discuss/419378/JavaC%2B%2BPython-Sliding-Window-O(1)-Space
+
+
+atMost(k) - atMost(k - 1)
+
+
+
+# https://leetcode.com/problems/frequency-of-the-most-frequent-element/discuss/1175088/C%2B%2B-Maximum-Sliding-Window-Cheatsheet-Template!
+
+
+# The following problems are also solvable using the shrinkable template with the "At Most to Equal" trick
+
+# 930. Binary Subarrays With Sum (Medium)
+# 992. Subarrays with K Different Integers
+# 1248. Count Number of Nice Subarrays (Medium)
+# 2062. Count Vowel Substrings of a String (Easy)
 
 
 ```
