@@ -214,27 +214,81 @@ def computeArea(self, ax1: int, ay1: int, ax2: int, ay2: int, bx1: int, by1: int
 ```
 
 
+https://leetcode.com/problems/frequency-of-the-most-frequent-element/discuss/1579702/Python-Further-break-down-Sliding-Window-Template
 
-Sliding window
+
+
+
+---
+
+1838. Frequency of the Most Frequent Element
 
 ```py
-# 1248 count number of nice subarrays
-# https://leetcode.com/problems/count-number-of-nice-subarrays/discuss/419378/JavaC%2B%2BPython-Sliding-Window-O(1)-Space
-
-
-atMost(k) - atMost(k - 1)
-
-
-
-# https://leetcode.com/problems/frequency-of-the-most-frequent-element/discuss/1175088/C%2B%2B-Maximum-Sliding-Window-Cheatsheet-Template!
-
-
-# The following problems are also solvable using the shrinkable template with the "At Most to Equal" trick
-
-# 930. Binary Subarrays With Sum (Medium)
-# 992. Subarrays with K Different Integers
-# 1248. Count Number of Nice Subarrays (Medium)
-# 2062. Count Vowel Substrings of a String (Easy)
-
-
+def maxFrequency(self, nums: List[int], k: int) -> int:
+    nums.sort()
+    sm = 0
+    l = 0
+    res = 0
+    for r, num in enumerate(nums):
+        sm += num
+        while sm + k < num * (r - l + 1):
+            sm -= nums[l]
+            l += 1
+        res = max(res, r - l + 1)
+    return res
 ```
+
+2009. Minimum Number of Operations to Make Array Continuous
+
+
+
+
+State Machine
+524.Longest-Word-in-Dictionary-through-Deleting (M+)
+
+we need a data structure that given an index and a letter
+we can know that whether from that index going right, there's the letter
+
+Given a string `abpcplea`, resulting data structure is
+
+
+```py
+
+nxt = defaultdict(lambda: defaultdict(lambda: -1))
+m = len(s)
+s = '#' + s
+for i in range(1, m + 1)[::-1]:
+    for k in nxt[i]:
+        nxt[i - 1][k] = nxt[i][k]
+    nxt[i - 1][s[i]] = i
+
+{
+    8: {},
+    7: {'a': 8},
+    6: {'a': 8, 'e': 7},
+    5: {'a': 8, 'e': 7, 'l': 6},
+    4: {'a': 8, 'e': 7, 'l': 6, 'p': 5}
+    3: {'a': 8, 'e': 7, 'l': 6, 'p': 5, 'c': 4},
+    2: {'a': 8, 'e': 7, 'l': 6, 'p': 3, 'c': 4}
+    1: {'a': 8, 'e': 7, 'l': 6, 'p': 3, 'c': 4, 'b': 2}
+    0: {'a': 1, 'e': 7, 'l': 6, 'p': 3, 'c': 4, 'b': 2}
+}
+
+
+# after we have this, we can use
+flag = 1
+for ch in word:
+    i = nxt[i][ch]
+    if i == -1:
+        flag = 0
+        break
+if flag:
+    print('word is subsequence of abpcplea')
+```
+
+
+
+727.Minimum-Window-Subsequence (H-)
+792.Number-of-Matching-Subsequences (H-)
+1055.Shortest-Way-to-Form-String (M+)
+2055.Plates-Between-Candles (M+)
