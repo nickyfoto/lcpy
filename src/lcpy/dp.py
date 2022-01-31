@@ -46,6 +46,9 @@ class Knapsack:
         return value[n][B]
 
     def knapsackRepeat(self, v, w, B):
+        """
+        https://www.lintcode.com/problem/440
+        """
         n = len(v)
         dp = [0] * (B+1)
         for b in range(B+1):
@@ -272,6 +275,8 @@ def coin_change2(money, coins):
 
 def coin_change3(money, coins):
     """
+    https://leetcode.com/problems/coin-change/
+
     given money and coins
     return min number of coins to make the change
     if cannot make the change, return -1

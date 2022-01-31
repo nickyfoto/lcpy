@@ -110,3 +110,86 @@ class Trie:
             result.append(prefix)
         self.collect(node.mid, prefix, result)
         return result
+
+
+from collections import defaultdict
+class TrieNode:
+    def __init__(self):
+        self.children = defaultdict(TrieNode)
+        self.is_word = False
+
+class Trie:
+
+    def __init__(self):
+        # do intialization if necessary
+        self.root = TrieNode()
+
+    def insert(self, word):
+        # write your code here
+        current = self.root
+        for letter in word:
+            current = current.children[letter]
+        current.is_word = True
+
+    def search(self, word):
+        # write your code here
+        current = self.root
+        for letter in word:
+            current = current.children.get(letter)
+            if current is None:
+                return False
+        return current.is_word
+
+    def startsWith(self, prefix):
+        # write your code here
+        current = self.root
+        for letter in prefix:
+            current = current.children.get(letter)
+            if current is None:
+                return False
+        return True
+
+
+from collections import defaultdict
+class Node:
+    def __init__(self):
+        self.children = defaultdict(Node)
+        self.is_word = False
+
+class WordDictionary:
+    """
+    @param: word: Adds a word into the data structure.
+    @return: nothing
+    """
+    def __init__(self):
+        self.root = Node()
+
+    def addWord(self, word):
+        # write your code here
+        curr = self.root
+        for c in word:
+            curr = curr.children[c]
+        curr.is_word = True
+    """
+    @param: word: A word could contain the dot character '.' to represent any one letter.
+    @return: if the word is in the data structure.
+    """
+    def search(self, word):
+        # write your code here
+        curr = self.root
+        self.res = False
+        self.dfs(curr, word)
+        return self.res
+
+    def dfs(self, node, word):
+        if not word:
+            if node.is_word:
+                self.res = True
+        elif word[0] == '.':
+            for child in node.children.values():
+                self.dfs(child, word[1:])
+        else:
+            node = node.children.get(word[0])
+            if node is None:
+                return
+            self.dfs(node, word[1:])
