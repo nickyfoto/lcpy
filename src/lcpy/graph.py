@@ -3,6 +3,64 @@ from heapq import heappop, heappush
 from math import inf
 from typing import List, Optional
 
+
+
+
+
+
+
+
+def have_circle_dfs(g, n):
+
+    visited = [0] * n
+    def dfs(node):
+        if visited[node] == 1:
+            return True
+        visited[node] = 2
+        for nxt in g[node]:
+            if visited[nxt] == 1:
+                continue
+            if visited[nxt] == 2:
+                return False
+            if dfs(nxt) == False:
+                return False
+        visited[node] = 1
+        return True
+    for i in range(n):
+        if dfs(i) == False:
+            return False
+    return False
+
+def have_circle_bfs(g, n):
+    q = []
+    cnt = 0
+    indegree = Counter()
+    for i in range(n):
+        for j in g[i]:
+            indegree[j] += 1
+    q = [i for i in range(n) if indegree[i] == 0]
+    cnt = len(q)
+    while q:
+        node = q.pop(0)
+        for nxt in g[node]:
+            indegree[nxt] -= 1
+            if indegree[nxt] == 0:
+                q.append(nxt)
+                cnt += 1
+
+    return cnt == n
+
+
+
+
+
+
+
+
+
+
+
+
 def dijkstra(g: dict, n: int, start: int, target: Optional[int] =None) -> List:  
     """
     :param g: directed graph
